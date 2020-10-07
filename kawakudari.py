@@ -1,6 +1,7 @@
 import arcade
 import random
 from ichigojam import Std15
+from ichigojam import DIR_UP, DIR_RIGHT, DIR_DOWN, DIR_LEFT
 
 class Kawakudari(arcade.Window):
 
@@ -19,13 +20,16 @@ class Kawakudari(arcade.Window):
             self.std15.putc(ord('0'))
             self.std15.locate(random.randrange(32), 23)
             self.std15.putc(ord('*'))
-            self.std15.scroll()
-            if not self.std15.scr(self.x,5) == 0:
+            self.std15.scroll(DIR_UP)
+            if self.std15.scr(self.x,5) != 0:
+                self.std15.locate(0,23)
+                self.std15.putstr("Game Over...")
+                self.std15.putnum(self.frame)
                 self.running = False
         self.frame += 1
     
     def on_draw(self):
-        self.std15.draw()
+        self.std15.draw_screen()
 
     def on_key_press(self, key, key_modifiers):
         if(key == arcade.key.LEFT):
