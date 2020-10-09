@@ -43,6 +43,7 @@ class Kawakudari(arcade.Window):
 
 ## Prerequisite
 
+* Video card and driver that supports OpenGL 3.3 or newer installed.
 * [Download](https://www.python.org/downloads/) and install Python suitable for your environment.
 * [Download](https://arcade.academy/installation.html) and install Arcade library.
 
